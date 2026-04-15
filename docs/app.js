@@ -32,6 +32,29 @@ function fmtDate(value) {
   }).format(date);
 }
 
+function fmtHourRange(value) {
+  if (!value) return "-";
+  const start = new Date(value);
+  if (Number.isNaN(start.getTime())) return value;
+  const end = new Date(start.getTime() + 60 * 60 * 1000);
+  const datePart = new Intl.DateTimeFormat("zh-CN", {
+    month: "2-digit",
+    day: "2-digit",
+    timeZoneName: "short",
+  }).format(start);
+  const startTime = new Intl.DateTimeFormat("zh-CN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(start);
+  const endTime = new Intl.DateTimeFormat("zh-CN", {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(end);
+  return `${datePart} ${startTime} - ${endTime}`;
+}
+
 function setText(id, value) {
   const node = document.getElementById(id);
   if (node) node.textContent = value;
@@ -65,15 +88,47 @@ function fillStatus(status) {
 
 function bucketTooltip(bucket) {
   const httpStatus = bucket.last_http_status == null ? "-" : bucket.last_http_status;
-  const successRate = bucket.checks > 0 ? `${bucket.successes}/${bucket.checks}` : "0/0";
+  const failures = Math.max(0, bucket.checks - bucket.successes);
   return [
-    fmtDate(bucket.hour),
+    `时间: ${fmtHourRange(bucket.hour)}`,
     `状态: ${statusLabels[bucket.status] || statusLabels.no_data}`,
-    `成功: ${successRate}`,
+    `请求次数: ${bucket.checks}`,
+    `成功次数: ${bucket.successes}`,
+    `失败次数: ${failures}`,
     `HTTP: ${httpStatus}`,
     `平均耗时: ${bucket.avg_latency_ms == null ? "-" : `${bucket.avg_latency_ms} ms`}`,
     `错误: ${bucket.last_error_message || "-"}`,
   ].join("\n");
+}
+
+function positionTooltip(tooltip, x, y) {
+  const offset = 14;
+  const maxLeft = window.innerWidth - tooltip.offsetWidth - 12;
+  const maxTop = window.innerHeight - tooltip.offsetHeight - 12;
+  const left = Math.min(Math.max(12, x + offset), Math.max(12, maxLeft));
+  const top = Math.min(Math.max(12, y + offset), Math.max(12, maxTop));
+  tooltip.style.left = `${left}px`;
+  tooltip.style.top = `${top}px`;
+}
+
+function showGridTooltip(text, event) {
+  const tooltip = document.getElementById("gridTooltip");
+  if (!tooltip) return;
+  tooltip.textContent = text;
+  tooltip.hidden = false;
+  positionTooltip(tooltip, event.clientX, event.clientY);
+}
+
+function moveGridTooltip(event) {
+  const tooltip = document.getElementById("gridTooltip");
+  if (!tooltip || tooltip.hidden) return;
+  positionTooltip(tooltip, event.clientX, event.clientY);
+}
+
+function hideGridTooltip() {
+  const tooltip = document.getElementById("gridTooltip");
+  if (!tooltip) return;
+  tooltip.hidden = true;
 }
 
 function fillHistory(history) {
@@ -109,7 +164,22 @@ function fillHistory(history) {
 
     const cell = document.createElement("div");
     cell.className = `uptime-cell cell-${bucket.status || "no_data"}`;
-    cell.title = bucketTooltip(bucket);
+    const tooltip = bucketTooltip(bucket);
+    cell.title = tooltip;
+    cell.setAttribute("tabindex", "0");
+    cell.setAttribute("role", "button");
+    cell.setAttribute("aria-label", tooltip.replace(/\n/g, ", "));
+    cell.addEventListener("mouseenter", (event) => showGridTooltip(tooltip, event));
+    cell.addEventListener("mousemove", moveGridTooltip);
+    cell.addEventListener("mouseleave", hideGridTooltip);
+    cell.addEventListener("focus", () => {
+      const rect = cell.getBoundingClientRect();
+      showGridTooltip(tooltip, {
+        clientX: rect.left + rect.width / 2,
+        clientY: rect.top + rect.height / 2,
+      });
+    });
+    cell.addEventListener("blur", hideGridTooltip);
     grid.appendChild(cell);
   }
 

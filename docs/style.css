@@ -201,6 +201,15 @@ code {
   aspect-ratio: 1 / 1;
   border-radius: 4px;
   background: var(--gray);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.uptime-cell:hover,
+.uptime-cell:focus-visible {
+  transform: translateY(-1px);
+  box-shadow: 0 0 0 2px rgba(24, 163, 122, 0.2);
+  outline: none;
 }
 
 .cell-operational {
@@ -250,6 +259,26 @@ code {
 
 .dot-gray {
   background: var(--gray);
+}
+
+.grid-tooltip {
+  position: fixed;
+  z-index: 1000;
+  max-width: 280px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(21, 32, 51, 0.96);
+  color: #fff;
+  font-size: 13px;
+  line-height: 1.5;
+  white-space: pre-line;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+
+.grid-tooltip[hidden] {
+  display: none;
 }
 
 @media (max-width: 900px) {
