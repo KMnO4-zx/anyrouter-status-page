@@ -1,12 +1,12 @@
 {
   "service_name": "Anyrouter Claude Code Probe",
-  "overall_status": "major_outage",
-  "http_status": 404,
+  "overall_status": "degraded",
+  "http_status": 200,
   "token_ok": false,
   "last_token": "",
-  "latency_ms": 1118.19,
-  "checked_at": "2026-04-15T05:08:47Z",
-  "error_message": "当前 API 不支持所选模型 opus",
-  "raw_error_type": "error",
-  "target_model": "opus[1m]"
+  "latency_ms": 3511.76,
+  "checked_at": "2026-04-15T05:10:18Z",
+  "error_message": "No text content in response",
+  "raw_error_type": null,
+  "target_model": "claude-opus-4-6[1m]"
 }

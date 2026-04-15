@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-15T05:08:47Z",
+  "generated_at": "2026-04-15T05:10:18Z",
   "window_hours": 168,
   "buckets": [
     {
@@ -13,11 +13,11 @@
     },
     {
       "hour": "2026-04-15T05:00:00Z",
-      "checks": 1,
+      "checks": 2,
       "successes": 0,
-      "last_http_status": 404,
-      "avg_latency_ms": 1118.19,
-      "last_error_message": "当前 API 不支持所选模型 opus",
+      "last_http_status": 200,
+      "avg_latency_ms": 2314.98,
+      "last_error_message": "No text content in response",
       "status": "major_outage"
     }
   ]
