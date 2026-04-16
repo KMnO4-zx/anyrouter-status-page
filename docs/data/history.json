@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-16T16:10:27Z",
+  "generated_at": "2026-04-16T16:15:34Z",
   "window_hours": 168,
   "buckets": [
     {
@@ -328,11 +328,11 @@
     },
     {
       "hour": "2026-04-16T16:00:00Z",
-      "checks": 3,
+      "checks": 4,
       "successes": 0,
-      "last_http_status": 429,
-      "avg_latency_ms": 1233.76,
-      "last_error_message": "Service Unavailable",
+      "last_http_status": 400,
+      "avg_latency_ms": 1285.63,
+      "last_error_message": "claude-opus-4-6 已下线，请切换到 claude-opus-4-7 模型",
       "status": "major_outage"
     }
   ]
