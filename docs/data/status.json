@@ -4,8 +4,8 @@
   "http_status": 500,
   "token_ok": false,
   "last_token": "",
-  "latency_ms": 988.8,
-  "checked_at": "2026-04-16T18:41:02Z",
+  "latency_ms": 1248.62,
+  "checked_at": "2026-04-16T18:46:02Z",
   "error_message": "Panic detected, error: runtime error: invalid memory address or nil pointer dereference. Please submit a issue here: https://github.com/Calcium-Ion/new-api",
   "raw_error_type": "new_api_panic",
   "target_model": "claude-opus-4-7[1m]"
