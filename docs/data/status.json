@@ -4,8 +4,8 @@
   "http_status": 429,
   "token_ok": false,
   "last_token": "",
-  "latency_ms": 1236.77,
-  "checked_at": "2026-04-17T02:31:08Z",
+  "latency_ms": 1229.97,
+  "checked_at": "2026-04-17T02:36:08Z",
   "error_message": "Service Unavailable",
   "raw_error_type": "error",
   "target_model": "claude-opus-4-7[1m]"
