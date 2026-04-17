@@ -4,8 +4,8 @@
   "http_status": 200,
   "token_ok": true,
   "last_token": "A",
-  "latency_ms": 22425.08,
-  "checked_at": "2026-04-17T12:11:10Z",
+  "latency_ms": 21765.34,
+  "checked_at": "2026-04-17T12:16:10Z",
   "error_message": "",
   "raw_error_type": null,
   "target_model": "claude-opus-4-7[1m]"
