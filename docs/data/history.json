@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T04:01:08Z",
+  "generated_at": "2026-04-17T04:06:07Z",
   "window_hours": 168,
   "buckets": [
     {
@@ -436,12 +436,12 @@
     },
     {
       "hour": "2026-04-17T04:00:00Z",
-      "checks": 1,
-      "successes": 0,
-      "last_http_status": 520,
-      "avg_latency_ms": 1793.12,
-      "last_error_message": "HTTP 520",
-      "status": "major_outage"
+      "checks": 2,
+      "successes": 1,
+      "last_http_status": 200,
+      "avg_latency_ms": 2248.55,
+      "last_error_message": "",
+      "status": "degraded"
     }
   ]
 }
