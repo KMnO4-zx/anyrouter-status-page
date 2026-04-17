@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-17T23:25:44Z",
+  "generated_at": "2026-04-17T23:30:48Z",
   "window_hours": 168,
   "buckets": [
     {
@@ -607,10 +607,10 @@
     },
     {
       "hour": "2026-04-17T23:00:00Z",
-      "checks": 6,
-      "successes": 6,
+      "checks": 7,
+      "successes": 7,
       "last_http_status": 200,
-      "avg_latency_ms": 2845.05,
+      "avg_latency_ms": 2835.58,
       "last_error_message": "",
       "status": "operational"
     }
