@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-04-18T03:25:56Z",
+  "generated_at": "2026-04-18T03:31:07Z",
   "window_hours": 168,
   "buckets": [
     {
@@ -643,11 +643,11 @@
     },
     {
       "hour": "2026-04-18T03:00:00Z",
-      "checks": 6,
+      "checks": 7,
       "successes": 1,
-      "last_http_status": 520,
-      "avg_latency_ms": 1762.15,
-      "last_error_message": "HTTP 520",
+      "last_http_status": null,
+      "avg_latency_ms": 5860.92,
+      "last_error_message": "TimeoutError: The read operation timed out",
       "status": "degraded"
     }
   ]
