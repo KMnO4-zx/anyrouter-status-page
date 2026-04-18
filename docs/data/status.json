@@ -4,8 +4,8 @@
   "http_status": 520,
   "token_ok": false,
   "last_token": "",
-  "latency_ms": 2713.99,
-  "checked_at": "2026-04-18T02:00:59Z",
+  "latency_ms": 2188.47,
+  "checked_at": "2026-04-18T02:05:56Z",
   "error_message": "HTTP 520",
   "raw_error_type": null,
   "target_model": "claude-opus-4-7[1m]"
